@@ -13,9 +13,7 @@
 
 (defvar act-fontlock nil "list for font-lock defaults")
 (setq act-fontlock
-	  (let (act-comments-regex
-			act-highlights
-			act-keywords-regex
+	  (let (act-keywords-regex
 			act-types-regex
 			act-functions-regex)
 
@@ -23,16 +21,10 @@
 		(setq act-keywords-regex (regexp-opt act-keywords 'words))
 		(setq act-types-regex (regexp-opt act-types 'words))
 		(setq act-functions-regex (regexp-opt act-functions 'words))
-		(setq act-comments-regex nil)
-		(setq act-highlights nil)
-		;; (setq act-comments-regex '("//.+"))
-		;; (setq act-highlights '("<[[:digit:]]+>\\|defproc\s\\w+("))
 
-		(list (cons act-highlights 'font-lock-constant-face)
-			  (cons act-keywords-regex 'font-lock-keyword-face)
+		(list (cons act-keywords-regex 'font-lock-keyword-face)
 			  (cons act-functions-regex 'font-lock-function-name-face)
-			  (cons act-types-regex 'font-lock-type-face)
-			  (cons act-comments-regex 'font-lock-comment-face))))
+			  (cons act-types-regex 'font-lock-type-face))))
 
 
 ;;;###autoload
