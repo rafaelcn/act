@@ -1,0 +1,3 @@
+* Proact
+
+Is an Emacs package for the act language. It provides a major mode with syntax highlighting.
