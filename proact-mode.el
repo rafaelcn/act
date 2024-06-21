@@ -1,12 +1,20 @@
 ;;; proact-mode.el --- major mode for editing ACT files -*- coding: utf-8; lexical-binding: t; -*-
 
+;;; Commentary:
+
+;; Copyright 2024 The proact-mode Authors. All rights reserved.
+;; Use of this source code is governed by a MIT license that
+;; can be found in the LICENSE file.
+
 ;; Authors: Rafael Campos Nunes <rcamposnunes@outlook.com>
 
-(defvar act-keywords '("export" "import") "act keywords")
-(defvar act-types '("bool" "e1of" "e2of" "e3of" "globals") "act types")
-(defvar act-functions '("defproc" "prs") "act functions")
+;;; Code:
 
-(defvar act-fontlock nil "list for font-lock defaults")
+(defvar act-keywords '("export" "import") "List of keywords in act.")
+(defvar act-types '("bool" "e1of" "e2of" "e3of" "globals") "List of types in act.")
+(defvar act-functions '("defproc" "prs") "List of functions in act.")
+
+(defvar act-fontlock nil "List for font-lock defaults.")
 
 (setq act-fontlock
 	  (let ((act-comments-regex "//.*")
@@ -25,8 +33,8 @@
 
 
 ;;;###autoload
-(define-derived-mode act-mode prog-mode "act"
-  "Major mode for editing act files"
+(define-derived-mode act-mode prog-mode "proact"
+  "Major mode for the act programming language."
 
   (setq-local font-lock-defaults '((act-fontlock))))
 
