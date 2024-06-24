@@ -2,9 +2,7 @@
 
 ;;; Commentary:
 
-;; Copyright 2024 The proact-mode Authors. All rights reserved.
-;; Use of this source code is governed by a MIT license that
-;; can be found in the LICENSE file.
+;; SPDX-License-Identifier: MIT
 
 ;; Authors: Rafael Campos Nunes <rcamposnunes@outlook.com>
 ;; Package-Version: 1.0
@@ -21,23 +19,21 @@
 (defvar proact-types '("bool" "e1of" "e2of" "e3of" "globals") "List of types in act.")
 (defvar proact-functions '("defproc" "prs") "List of functions in act.")
 
-(defvar proact-fontlock nil "List for font-lock defaults.")
-
-(setq proact-fontlock
-	  (let ((proact-comments-regex "//.*")
-			(proact-highlights "<[[:digit:]]+>")
-			(proact-keywords-regex (regexp-opt proact-keywords 'words))
-			(proact-types-regex (regexp-opt proact-types 'words))
-			(proact-functions-regex (regexp-opt proact-functions 'words)))
-
-		;; a regex for each category of word within the language
-
-		(list (cons proact-keywords-regex 'font-lock-keyword-face)
-			  (cons proact-functions-regex 'font-lock-function-name-face)
-			  (cons proact-types-regex 'font-lock-type-face)
-			  (cons proact-comments-regex 'font-lock-comment-face)
-			  (cons proact-highlights 'font-lock-constant-face))))
-
+(defvar proact-fontlock
+  (let ((proact-comments-regex "//.*")
+		(proact-highlights "<[[:digit:]]+>")
+		(proact-keywords-regex (regexp-opt proact-keywords 'words))
+		(proact-types-regex (regexp-opt proact-types 'words))
+		(proact-functions-regex (regexp-opt proact-functions 'words)))
+	
+	;; a regex for each category of word within the language
+	
+	(list (cons proact-keywords-regex 'font-lock-keyword-face)
+		  (cons proact-functions-regex 'font-lock-function-name-face)
+		  (cons proact-types-regex 'font-lock-type-face)
+		  (cons proact-comments-regex 'font-lock-comment-face)
+		  (cons proact-highlights 'font-lock-constant-face)))
+  "List for font-lock defaults.")
 
 ;;;###autoload
 (define-derived-mode proact-mode prog-mode "proact"
