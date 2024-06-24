@@ -34,7 +34,7 @@
   
   (setq-local font-lock-defaults '((proact-fontlock))))
 
-(add-to-list 'auto-mode-alist '("\\.act\\'" . act-mode))
+(add-to-list 'auto-mode-alist '("\\.act\\'" . proact-mode))
 
 (provide 'proact-mode)
 
