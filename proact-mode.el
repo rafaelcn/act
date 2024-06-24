@@ -25,7 +25,7 @@
 		(cons (regexp-opt proact-functions 'words) 'font-lock-function-name-face)   ;; functions regex
 		(cons (regexp-opt proact-types 'words) 'font-lock-type-face)                ;; types regex
 		(cons "//.*" 'font-lock-comment-face)                                       ;; comments regex
-		(cons  "<[[:digit:]]+>" 'font-lock-constant-face))                          ;; highlights regex
+		(cons "<[[:digit:]]+>" 'font-lock-constant-face))                           ;; highlights regex
   "List for font-lock defaults.")
 
 ;;;###autoload
