@@ -20,26 +20,19 @@
 (defvar proact-functions '("defproc" "prs") "List of functions in act.")
 
 (defvar proact-fontlock
-  (let ((proact-comments-regex "//.*")
-		(proact-highlights "<[[:digit:]]+>")
-		(proact-keywords-regex (regexp-opt proact-keywords 'words))
-		(proact-types-regex (regexp-opt proact-types 'words))
-		(proact-functions-regex (regexp-opt proact-functions 'words)))
-	
-	;; a regex for each category of word within the language
-	
-	(list (cons proact-keywords-regex 'font-lock-keyword-face)
-		  (cons proact-functions-regex 'font-lock-function-name-face)
-		  (cons proact-types-regex 'font-lock-type-face)
-		  (cons proact-comments-regex 'font-lock-comment-face)
-		  (cons proact-highlights 'font-lock-constant-face)))
+  ;; a regex for each category of word within the language
+  (list (cons (regexp-opt proact-keywords 'words) 'font-lock-keyword-face)          ;; keywords regex
+		(cons (regexp-opt proact-functions 'words) 'font-lock-function-name-face)   ;; functions regex
+		(cons (regexp-opt proact-types 'words) 'font-lock-type-face)                ;; types regex
+		(cons "//.*" 'font-lock-comment-face)                                       ;; comments regex
+		(cons  "<[[:digit:]]+>" 'font-lock-constant-face))                          ;; highlights regex
   "List for font-lock defaults.")
 
 ;;;###autoload
 (define-derived-mode proact-mode prog-mode "proact"
   "Major mode for the act programming language."
-
-  (setq-local font-lock-defaults '((act-fontlock))))
+  
+  (setq-local font-lock-defaults '((proact-fontlock))))
 
 (add-to-list 'auto-mode-alist '("\\.act\\'" . act-mode))
 
