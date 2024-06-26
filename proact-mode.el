@@ -16,8 +16,8 @@
 ;;; Code:
 
 (defvar proact-keywords '("export" "import") "List of keywords in act.")
-(defvar proact-types '("bool" "e1of" "e2of" "e3of" "globals") "List of types in act.")
-(defvar proact-functions '("defproc" "prs") "List of functions in act.")
+(defvar proact-types '("preal" "pint" "bool" "int" "e1of" "e2of" "e3of" "globals" "globals_np") "List of types in act.")
+(defvar proact-functions '("defproc" "deftype" "prs") "List of functions in act.")
 
 (defvar proact-fontlock
   ;; a regex for each category of word within the language
