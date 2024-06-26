@@ -15,17 +15,26 @@
 
 ;;; Code:
 
-(defvar proact-keywords '("export" "import") "List of keywords in act.")
-(defvar proact-types '("preal" "pint" "bool" "int" "e1of" "e2of" "e3of" "globals" "globals_np") "List of types in act.")
-(defvar proact-functions '("defproc" "deftype" "prs") "List of functions in act.")
+(defvar proact-keywords
+  '("export" "import")
+  "List of keywords in act.")
+
+(defvar proact-types
+  '("preal" "pint" "bool" "int" "e1of" "e2of" "e3of" "c1of" "globals" "globals_np")
+  "List of types in act.")
+
+(defvar proact-functions
+  '("defproc" "deftype" "defchan" "prs")
+  "List of functions in act.")
 
 (defvar proact-fontlock
   ;; a regex for each category of word within the language
-  (list (cons (regexp-opt proact-keywords 'words) 'font-lock-keyword-face)          ;; keywords regex
-		(cons (regexp-opt proact-functions 'words) 'font-lock-function-name-face)   ;; functions regex
-		(cons (regexp-opt proact-types 'words) 'font-lock-type-face)                ;; types regex
-		(cons "//.*" 'font-lock-comment-face)                                       ;; comments regex
-		(cons "<[[:digit:]]+>" 'font-lock-constant-face))                           ;; highlights regex
+  (list
+   (cons "//.*" 'font-lock-comment-face)                                       ;; comments regex
+   (cons (regexp-opt proact-keywords 'words) 'font-lock-keyword-face)          ;; keywords regex
+   (cons (regexp-opt proact-functions 'words) 'font-lock-function-name-face)   ;; functions regex
+   (cons (regexp-opt proact-types 'words) 'font-lock-type-face)                ;; types regex
+   (cons "<[[:digit:]]+>" 'font-lock-constant-face))                           ;; highlights regex
   "List for font-lock defaults.")
 
 ;;;###autoload
