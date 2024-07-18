@@ -31,11 +31,11 @@
 (defvar act-fontlock
   ;; a regex for each category of word within the language
   (list
-   (cons "//.*" 'font-lock-comment-face)                                       ;; comments regex
+   (cons "//.*" 'font-lock-comment-face)                                    ;; comments regex
    (cons (regexp-opt act-keywords 'words) 'font-lock-keyword-face)          ;; keywords regex
    (cons (regexp-opt act-functions 'words) 'font-lock-function-name-face)   ;; functions regex
    (cons (regexp-opt act-types 'words) 'font-lock-type-face)                ;; types regex
-   (cons "<[[:digit:]]+>" 'font-lock-constant-face))                           ;; highlights regex
+   (cons "<[[:digit:]]+>" 'font-lock-constant-face))                        ;; highlights regex
   "List for font-lock defaults.")
 
 ;;;###autoload
